@@ -20,7 +20,26 @@ How To Start?
 
 ```C#
 
-            
+    public class User : No2verse.AzureTable.Base.DTableEntity
+    {
+        public class Car
+        {
+
+            public int No { get; set; }
+            public string Name { get; set; }
+
+            public DateTime BuyDate { get; set; }
+
+            public string Color { get; set; }
+
+        }
+
+        public string Name { get; set; }
+
+        public DateTime Birth { get; set; }
+
+        public Car CarInfo { get; set; }
+    }          
 
 
 ```
