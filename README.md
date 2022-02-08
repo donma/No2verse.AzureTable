@@ -109,7 +109,7 @@ How To Start?
 ```
 
 
-### GetData By Pa Data
+### GetData By PartitionKey RowKey
 
 ```C#
 
@@ -120,6 +120,31 @@ How To Start?
 
 ```
 
+
+
+### Get All Data by PartitionKey
+
+```C#
+
+    //GetAllData By PartitionKey
+    var data2 = queryMain.DatasByPartitionKey("PART1");
+    Console.WriteLine(JsonConvert.SerializeObject(data2));
+
+
+```
+
+
+### Get Table Data Count but slow
+
+```C#
+
+    //Data Count but Slow
+    //All Table Count
+    var tableCount= queryMain.DataCount();
+    Console.WriteLine(JsonConvert.SerializeObject(tableCount));
+
+
+```
 
 
 
