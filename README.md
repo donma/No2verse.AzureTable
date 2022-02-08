@@ -9,6 +9,16 @@ Tutorial
 How To Start?
 ----
 
+### Sample Data Model 
+
+```C#
+
+            
+
+
+```
+
+
 ### Create Table
 
 ```C#
@@ -18,7 +28,7 @@ How To Start?
 
 ```
 
-### Create D
+### Create Data
 
 ```C#
 
