@@ -45,6 +45,24 @@ How To Start?
 ```
 
 
+### Init
+
+```C#
+
+    //Init
+    var role = new No2verse.AzureTable.Base.AzureTableRole("TEST1", new No2verse.AzureTable.AzureStorageSettings
+    {
+        //Azure Table Connection String.
+        //DefaultEndpointsProtocol=https;AccountName=azureblobname;AccountKey=....
+        ConnectionString = AzureConnectionString
+
+     });
+        
+
+
+```
+
+
 ### Create Table
 
 ```C#
