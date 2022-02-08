@@ -67,15 +67,30 @@ How To Start?
 
 ```C#
 
+    
+    //Create Table
+    //needToCheckExisted  for check table existed and create .
+    
+    var operatorMain = new No2verse.AzureTable.Collections.Operator(role, "tablesample1", true);
+
             
-
-
 ```
 
-### Create Data
+### Create/Update Data
 
 ```C#
 
+
+    //UpdateData
+    var data1 = new User
+    {
+        PartitionKey = "PART1",
+        RowKey = "DONMA",
+        Birth = new DateTime(1983, 6, 21),
+        Name = "DONMA HSU",
+        CarInfo = new User.Car { BuyDate = DateTime.Now, Color = "RED", No = 123456, Name = "SWIFT" }
+    };
+    operatorMain.Update(data1);
             
 
 
@@ -87,8 +102,21 @@ How To Start?
 
 ```C#
 
-            
 
+    //Delete Data
+    operatorMain.Delete("PART1", "DONMA");
+
+```
+
+
+### GetData By Pa Data
+
+```C#
+
+    //Get Data
+    var queryMain = new No2verse.AzureTable.Collections.Query<User>(role, "tablesample1");
+    var data=queryMain.DataByPRKey("PART1", "DONMA");
+    Console.WriteLine(JsonConvert.SerializeObject(data));
 
 ```
 
