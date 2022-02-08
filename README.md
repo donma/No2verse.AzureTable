@@ -96,6 +96,7 @@ How To Start?
 
 ```
 
+![alt 預覽](https://i.imgur.com/iDmOYXL.jpg)
 
 
 ### Delete Data
