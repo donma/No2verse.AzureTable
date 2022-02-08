@@ -142,7 +142,7 @@ How To Start?
     //Data Count but Slow
     //All Table Count
     var tableCount= queryMain.DataCount();
-    Console.WriteLine(JsonConvert.SerializeObject(tableCount));
+    Console.WriteLine(tableCount);
 
 
 ```
