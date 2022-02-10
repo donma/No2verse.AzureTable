@@ -131,8 +131,12 @@ namespace No2verse.AzureTable.Collections
 
         public int DataCount()
         {
-            var queryResult = CloudTable.ExecuteQuery(new TableQuery<TableEntity>(), null);
-
+            var pkFilter = new TableQuery<TableEntity>();
+            pkFilter.SelectColumns = new List<string>();
+            pkFilter.SelectColumns.Add("RowKey");
+            pkFilter.SelectColumns.Add("PartitionKey");
+            var queryResult = CloudTable.ExecuteQuery(pkFilter);
+         
             if (queryResult == null)
             {
                 return 0;
