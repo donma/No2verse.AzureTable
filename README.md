@@ -1,6 +1,6 @@
 # No2verse.AzureTable
 
-A simple library for .Net developer to use [Azure Table Storage](https://azure.microsoft.com/en-us/services/storage/tables/) , dep
+A simple library for .Net developer to use [Azure Table Storage](https://azure.microsoft.com/en-us/services/storage/tables/) 
 
 Dependency :
 
