@@ -10,7 +10,6 @@ Dependency :
 
 Happy Coding :)
 
-Tutorial
 ----
 
 How To Start?
