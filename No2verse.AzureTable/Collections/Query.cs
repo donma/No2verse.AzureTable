@@ -1,4 +1,4 @@
-﻿using No2verse.AzureTable.Base;
+using No2verse.AzureTable.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace No2verse.AzureTable.Collections
 
         #region Ctor
 
-        public Query(AzureTableRole role, string tableName)
+        public Query(AzureTableRole role, string tableName, bool isCreateIfNotExisted = false)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -47,7 +47,10 @@ namespace No2verse.AzureTable.Collections
             CloudTableClient = CloudStorageAccount.CreateCloudTableClient(new TableClientConfiguration());
 
             CloudTable = CloudTableClient.GetTableReference(tableName);
-            var res = CloudTable.CreateIfNotExists();
+            if (isCreateIfNotExisted)
+            {
+                var res = CloudTable.CreateIfNotExists();
+            }
 
         }
 
@@ -232,6 +235,19 @@ namespace No2verse.AzureTable.Collections
             var pkFilter = new TableQuery<T>()
                 .Where(TableQuery.GenerateFilterCondition("RowKey",
                   QueryComparisons.Equal, rowKey));
+            var entities = CloudTable.ExecuteQuery<T>(pkFilter);
+
+            if (entities != null)
+            {
+                return entities.ToList();
+            }
+            return new List<T>();
+        }
+
+        public List<T> DatasByQueryString(string queryString) {
+
+         var pkFilter = new TableQuery<T>().Where(queryString);
+
             var entities = CloudTable.ExecuteQuery<T>(pkFilter);
 
             if (entities != null)
