@@ -1,4 +1,4 @@
-﻿using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table;
 using No2verse.AzureTable.Base;
 using System;
 
@@ -31,7 +31,7 @@ namespace No2verse.AzureTable.Collections
         /// </summary>
         /// <param name="role"></param>
         /// <param name="tableName"></param>
-        public Operator(AzureTableRole role, string tableName, bool needToCheckExisted = false)
+        public Operator(AzureTableRole role, string tableName, bool isCreateIfNotExisted = false)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -49,7 +49,7 @@ namespace No2verse.AzureTable.Collections
 
             CloudTable = CloudTableClient.GetTableReference(tableName);
 
-            if (needToCheckExisted)
+            if (isCreateIfNotExisted)
             {
                 var res = CloudTable.CreateIfNotExists();
             }
